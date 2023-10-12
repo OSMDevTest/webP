@@ -1,0 +1,49 @@
+---
+import { Icon } from "astro-icon";
+import ContentSection from "~/components/content-section.astro";
+import type { FeatureItem } from "~/types";
+
+const features: Array<FeatureItem> = [
+  {
+    title: "Modular And Mobile Experience",
+    description:
+      "This innovative design transforms the museum into a dynamic digital playground, seamlessly integrating physical and digital elements. The modular architecture symbolizes adaptability, allowing the museum to evolve within the dynamic landscape of the digital age and enhancing visitor engagement. ",
+    icon: "mdi:graph",
+  },
+  {
+    title: "Technological Fusion for Colorful Narratives",
+    description:
+      "Rich media are integrated embracing the digital realm, offering a dynamic and immersive experience. This intentional fusion isn't just about reviving colors; it's an invitation to embark on a sensory adventure. Picture tactile exhibits dancing alongside interactive digital interfaces, making the museum a trailblazer where tradition and tech meet. Here, past and future intertwine, offering a mesmerizing journey into the boundless realm of human expression.",
+    icon: "mdi:search-web",
+  },
+  {
+    title: "Engagement and Open Science Emphasis",
+    description:
+      "This commitment to openness not only preserves cultural heritage but actively involves the audience, fostering a deeper connection between art and observer. The Open Space Museum becomes a living testament to the genuine exploration of our shared cultural narrative, where authenticity and engagement coalesce in a captivating dance of art and technology.",
+    icon: "mdi:account-group",
+  },
+];
+
+---
+
+<ContentSection title="Chromatic Heritage Hub" id="features">
+  <Fragment id= "right" slot="lead">
+    <span class="text-primary">Color Perspectives unfolded </span>Through </span> Spatial Experiences
+    <span class="text-primary"></span>
+  </Fragment>
+  <ul class="grid max-w-6xl grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
+    {
+      features.map(({ title, description, icon }) => (
+        <li class="flex flex-col items-center gap-4 border border-default bg-offset p-6">
+          <div class="h-16 w-16 rounded-full border-2 border-current p-3">
+            <Icon name={icon} />
+          </div>
+          <p class="text-center font-extrabold text-xl">{title}</p>
+          <p class="text-center text-offset text-sm">{description}</p>
+        </li>
+      ))
+    }
+  </ul>
+</ContentSection>
+
+
